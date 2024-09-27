@@ -63,4 +63,12 @@ export const globalStyles = StyleSheet.create({
     marginVertical:6,
     marginBottom:16,
   },
+  noPadding:{
+    alignItems:'center',
+    width:45,height:45 ,
+    margin:0, padding:0,
+    marginHorizontal:0,
+     marginVertical:0,
+     justifyContent:'center',
+  }
 });

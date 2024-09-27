@@ -111,7 +111,7 @@ const HomeScreen = ({navigation}:any) => {
              <FlatList 
              horizontal
              showsHorizontalScrollIndicator={false}
-             data={Array.from({length:5})} renderItem={({item,index}) => <EventItem key={`event ${index}`} item={item} type='card' />}/>
+             data={Array.from({length:5})} renderItem={({item,index}) => <EventItem key={`event ${index}`} item={itemEvent} type='card' />}/>
             </SectionComponent>
        </ScrollView>
      
