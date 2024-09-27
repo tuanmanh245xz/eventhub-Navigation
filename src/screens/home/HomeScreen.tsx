@@ -1,6 +1,6 @@
 import { HambergerMenu, Notification, SearchNormal1, Sort } from 'iconsax-react-native';
 import React from 'react';
-import { FlatList, Platform, ScrollView, StatusBar, TouchableOpacity, View } from 'react-native';
+import { FlatList, ImageBackground, Platform, ScrollView, StatusBar, TouchableOpacity, View } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import CategoriesList from '../../components/CategoriesList';
 import CircleComponent from '../../components/CircleComponent';
@@ -12,7 +12,7 @@ import TextComponent from '../../components/TextComponent';
 import { appColors } from '../../constants/appColors';
 import { fontFamilies } from '../../constants/fontFamilies';
 import { globalStyles } from '../../styles/globalStyles';
-import { EventItem, TagBarComponent, TagComponent } from '../../components/index';
+import { CardComponent, EventItem, TagBarComponent, TagComponent } from '../../components/index';
 
 
 const itemEvent = {
@@ -112,6 +112,31 @@ const HomeScreen = ({navigation}:any) => {
              horizontal
              showsHorizontalScrollIndicator={false}
              data={Array.from({length:5})} renderItem={({item,index}) => <EventItem key={`event ${index}`} item={itemEvent} type='card' />}/>
+            
+            </SectionComponent>
+             <SectionComponent styles={{marginBottom:20,padding:0}}>
+              <ImageBackground source={require('../../assets/images/banner2.png')} style={{flex:1,padding:16}} imageStyle={{
+                resizeMode :'cover',borderRadius:12,minHeight:127,
+                }}>
+                  <TextComponent text='Invite your friends' styles={{fontSize:18}}  title/>
+                  <TextComponent text='learing English ' styles={{fontSize:13}}  />
+                  <RowComponent justify='flex-start'>
+                    <TouchableOpacity style={[globalStyles.button,{marginTop:12,backgroundColor:'#00F8FF',paddingHorizontal:30}]}>
+                      <TextComponent  text='INVITE' color={appColors.white}/>
+                    </TouchableOpacity>
+                  </RowComponent>
+                  
+                </ImageBackground>
+             </SectionComponent>
+             <SpaceComponent height={20} />
+             
+             <SectionComponent styles={{paddingHorizontal:0,paddingTop:20}}>
+            <TagBarComponent  title='Nearby You' onPress={() => {}}/>
+             <FlatList 
+             horizontal
+             showsHorizontalScrollIndicator={false}
+             data={Array.from({length:5})} renderItem={({item,index}) => <EventItem key={`event ${index}`} item={itemEvent} type='card' />}/>
+            
             </SectionComponent>
        </ScrollView>
      

@@ -21,14 +21,14 @@ const EventItem = (props: Props) => {
     const {item, type, onPress} = props;
     console.log(item)
     return (
-       <CardComponent isShadow styles={{width:appInfo.sizes.WIDTH *0.7, padding:10,}} onPress={() => {}}>
+       <CardComponent isShadow styles={{width:appInfo.sizes.WIDTH *0.7, padding:10}} onPress={() => {}}>
         <ImageBackground style={{flex:1,marginBottom:12,height:131}} source={require('../assets/images/banner1.png')} imageStyle={{
             resizeMode:'cover',
            
             borderRadius:12,
 
         }}>
-        <RowComponent justify='space-between' styles={{marginHorizontal:10, marginVertical:10, borderWidth:1}}>
+        <RowComponent justify='space-between' styles={{marginHorizontal:10, marginVertical:10}}>
         <CardComponent styles={[globalStyles.noPadding,]}>
             <TextComponent text='10' styles={{fontWeight:'bold'}} color='#F0635A' />
             <TextComponent text='JUNE'styles={{fontSize:12}} color='#F0635A'/>
