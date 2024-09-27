@@ -1,10 +1,11 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const ProfileScreen = () => {
+const ProfileScreen = (props) => {
+  console.log(props.usernameApi)
   return (
     <View>
-      <Text>ProfileScreen</Text>
+      <Text style={{color:'#000'}}>{props.usernameApi}</Text>
     </View>
   )
 }

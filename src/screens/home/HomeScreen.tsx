@@ -4,12 +4,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { globalStyles } from '../../styles/globalStyles';
 import { appColors } from '../../constants/appColors';
 import RowComponent from '../../components/RowComponent';
-import { ArrowDown, HambergerMenu, Notification } from 'iconsax-react-native';
+import { ArrowDown, HambergerMenu, Notification, SearchNormal1, Sort } from 'iconsax-react-native';
 import TextComponent from '../../components/TextComponent';
 import SpaceComponent from '../../components/SpaceComponent';
 import { fontFamilies } from '../../constants/fontFamilies';
 import CircleComponent from '../../components/CircleComponent';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import TagComponent from '../../components/TagComponent';
 
 const HomeScreen = ({navigation}:any) => {
   return (
@@ -54,6 +55,29 @@ const HomeScreen = ({navigation}:any) => {
 
         </View>
         </CircleComponent>
+        </RowComponent>
+        <SpaceComponent height={10}/>
+        <RowComponent >
+          <RowComponent styles={{flex:1}} onPress={() => navigation.navigate('SearchEvents',{
+            isFilter : false,
+          })}>
+            <SearchNormal1 variant='TwoTone' size={16} color={appColors.white}/>
+            <View style={{
+              width:1,
+              backgroundColor:appColors.gray2,
+              height:18,
+              marginHorizontal:10,
+            }}/>
+            <TextComponent text='Search...' color={appColors.gray2} />
+          </RowComponent>
+            <TagComponent bgColor='#5D56F3' onPress ={() => navigation.navigate('SearchEvents',{
+               isFilter : true,
+            })} lable='Filters' icon={
+              <CircleComponent size={20} color='#A29EF0'>
+                  <Sort size={16} color='white' />
+              </CircleComponent>
+              
+              }/>
         </RowComponent>
        </View>
        <View style={{flex:1}}></View>

@@ -5,5 +5,6 @@ import HomeScreen from './home/HomeScreen';
 import EventsScreen from './events/EventsScreen';
 import MapScreen from './maps/MapScreen';
 import ProfileScreen from './profiles/ProfileScreen';
+import SearchEvents from './events/SearchEvents';
 
-export {HomeScreen, LoginScreen, SplashScreen,AddNewScreen,EventsScreen,MapScreen,ProfileScreen};
+export {HomeScreen, LoginScreen, SplashScreen,AddNewScreen,EventsScreen,MapScreen,ProfileScreen,SearchEvents};
