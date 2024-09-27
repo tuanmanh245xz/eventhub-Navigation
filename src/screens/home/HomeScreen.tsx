@@ -1,19 +1,35 @@
-import {View, Text, Button, StatusBar, SafeAreaView, TouchableOpacity, Platform} from 'react-native';
-import React, { ReactNode } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { globalStyles } from '../../styles/globalStyles';
-import { appColors } from '../../constants/appColors';
-import RowComponent from '../../components/RowComponent';
-import { ArrowDown, HambergerMenu, Notification, SearchNormal1, Sort } from 'iconsax-react-native';
-import TextComponent from '../../components/TextComponent';
-import SpaceComponent from '../../components/SpaceComponent';
-import { fontFamilies } from '../../constants/fontFamilies';
-import CircleComponent from '../../components/CircleComponent';
+import { HambergerMenu, Notification, SearchNormal1, Sort } from 'iconsax-react-native';
+import React from 'react';
+import { FlatList, Platform, ScrollView, StatusBar, TouchableOpacity, View } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import TagComponent from '../../components/TagComponent';
 import CategoriesList from '../../components/CategoriesList';
+import CircleComponent from '../../components/CircleComponent';
+import RowComponent from '../../components/RowComponent';
+import SectionComponent from '../../components/SectionComponent';
+import SpaceComponent from '../../components/SpaceComponent';
+
+import TextComponent from '../../components/TextComponent';
+import { appColors } from '../../constants/appColors';
+import { fontFamilies } from '../../constants/fontFamilies';
+import { globalStyles } from '../../styles/globalStyles';
+import { EventItem, TagBarComponent, TagComponent } from '../../components/index';
 
 
+const itemEvent = {
+  title: 'International Band Music Concert',
+  description:
+    'Enjoy your favorite dishe and a lovely your friends and family and have a great time. Food from local food trucks will be available for purchase.',
+  location: {
+    title: 'Gala Convention Center',
+    address: '36 Guild Street London, UK',
+  },
+  imageUrl: '',
+  users: [''],
+  authorId: '',
+  startAt: Date.now(),
+  endAt: Date.now(),
+  date: Date.now(),
+};
 
 const HomeScreen = ({navigation}:any) => {
   return (
@@ -89,7 +105,15 @@ const HomeScreen = ({navigation}:any) => {
         <View style={{marginBottom:-9}}/>
         <CategoriesList isFill/>
        </View>
-       <View style={{flex:1}}></View>
+       <ScrollView style={{flex:1,marginTop:16}} showsVerticalScrollIndicator={false}>
+            <SectionComponent styles={{paddingHorizontal:0,paddingTop:20}}>
+            <TagBarComponent  title='Upcoming Events' onPress={() => {}}/>
+             <FlatList 
+             horizontal
+             showsHorizontalScrollIndicator={false}
+             data={Array.from({length:5})} renderItem={({item,index}) => <EventItem key={`event ${index}`} item={item} type='card' />}/>
+            </SectionComponent>
+       </ScrollView>
      
      
      

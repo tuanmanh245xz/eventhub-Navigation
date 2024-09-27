@@ -12,13 +12,15 @@ interface Props {
   font?: string;
   styles?: StyleProp<TextStyle>;
   title?: boolean;
+  numberOfline?: number;
 }
 
 const TextComponent = (props: Props) => {
-  const {text, size, flex, font, color, styles, title} = props;
+  const {text, size, flex, font, color, styles, title,numberOfline} = props;
 
   return (
     <Text
+      numberOfLines={numberOfline}
       style={[
         globalStyles.text,
         {
