@@ -1,5 +1,5 @@
 import {View, Text, Button, StatusBar, SafeAreaView, TouchableOpacity, Platform} from 'react-native';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { globalStyles } from '../../styles/globalStyles';
 import { appColors } from '../../constants/appColors';
@@ -11,6 +11,9 @@ import { fontFamilies } from '../../constants/fontFamilies';
 import CircleComponent from '../../components/CircleComponent';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import TagComponent from '../../components/TagComponent';
+import CategoriesList from '../../components/CategoriesList';
+
+
 
 const HomeScreen = ({navigation}:any) => {
   return (
@@ -19,12 +22,13 @@ const HomeScreen = ({navigation}:any) => {
       
       <View style={{
         backgroundColor:appColors.primary,
-        height:179,
+        height: Platform.OS == 'android' ? 166 : 182,
         borderBottomLeftRadius:40,
         borderBottomRightRadius:40,
         paddingTop:Platform.OS  === 'android' ?StatusBar.currentHeight : 42,
-        paddingHorizontal:20,
+       
        }}>
+        <View style={{paddingHorizontal:16}}>
         <SpaceComponent height={20} />
         <RowComponent>
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
@@ -56,7 +60,7 @@ const HomeScreen = ({navigation}:any) => {
         </View>
         </CircleComponent>
         </RowComponent>
-        <SpaceComponent height={10}/>
+        <SpaceComponent height={20}/>
         <RowComponent >
           <RowComponent styles={{flex:1}} onPress={() => navigation.navigate('SearchEvents',{
             isFilter : false,
@@ -79,6 +83,11 @@ const HomeScreen = ({navigation}:any) => {
               
               }/>
         </RowComponent>
+        <SpaceComponent height={20}/>
+        </View>
+       
+        <View style={{marginBottom:-9}}/>
+        <CategoriesList isFill/>
        </View>
        <View style={{flex:1}}></View>
      

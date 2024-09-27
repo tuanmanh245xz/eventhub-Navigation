@@ -23,9 +23,12 @@ const TagComponent = (props: Props) => {
         style={[
             globalStyles.row,
             globalStyles.tags,
+            
+            
             {
                 backgroundColor: bgColor?bgColor : appColors.white,
-            }
+            },
+            styles,
         ]}
     >
         {icon && icon}
